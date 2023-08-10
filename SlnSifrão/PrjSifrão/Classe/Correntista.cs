@@ -61,7 +61,10 @@ namespace PrjSifrão.Classe
                 {
                     MessageBox.Show("Maior de idade");
 
-                    throw new Exception("viado");
+                }
+                else
+                {
+                    throw new Exception("");
                 }
                 return idade;
                 
