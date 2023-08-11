@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -16,7 +17,7 @@ namespace PrjSifrão.Classe
         public DateTime dataNascimento { get; set; }
         public double rendaMensal { get; set; }
         public int CPF { get; set; }
-        
+
 
         public int Id
         {
@@ -51,38 +52,39 @@ namespace PrjSifrão.Classe
 
         }
 
-        public int VerificarSeCorrentistaMaior()
+        public bool VerificarSeCorrentistaMaior()
         {
-            int idade=0;
-            try
+            DateTime dataatual = DateTime.Now;
+            int idade = dataatual.Year - this.dataNascimento.Year;
+            if (dataatual.Month < this.dataNascimento.Month || (dataatual.Month == this.dataNascimento.Month && dataatual.Day < this.dataNascimento.Day))
             {
-                int datanascimento = (Convert.ToInt32(DateTime.Now - dataNascimento));
-                if (idade > 17)
-                {
-                    MessageBox.Show("Maior de idade");
-
-                }
-                else
-                {
-                    throw new Exception("");
-                }
-                return idade;
-                
+                idade = idade - 1;
             }
-            catch 
+
+            if (idade > 17)
             {
 
-                return 0;
+                return true;
+
             }
+            else
+            {
+                return false;
+            }
+
         }
 
-        /*public string RetonarPerfilCliente(double rendaMensal)
+        public string RetonarPerfilCliente()
         {
-            if (rendaMensal > 10000)
+            if (this.rendaMensal < 3001)
             {
-                MessageBox.Show("Voce é burgues"); 
+                MessageBox.Show("Voce é Cliente Silver"); 
+            }
+            else if (this.rendaMensal > 3000.99 && this.rendaMensal < 5001 )
+            {
+                MessageBox.Show("Você é cliente Gold");
             }
             
-        }*/
+        }
     }
 }

@@ -1,9 +1,9 @@
 namespace PrjSifrão;
 using PrjSifrão.Classe;
 
-    public partial class Form1 : Form
+public partial class Form1 : Form
 {
-    Correntista conta1;
+
     public Form1()
     {
         InitializeComponent();
@@ -26,16 +26,19 @@ using PrjSifrão.Classe;
 
     private void btnCadastrar_Click(object sender, EventArgs e)
     {
-        try
-        {
 
-            conta1.VerificarSeCorrentistaMaior();
-        }
-        catch (Exception ex)
+        Correntista correntistinha = new Correntista(txtNome.Text, Convert.ToInt32(txtID.Text), Convert.ToDateTime(dtpDataNascimento.Text), Convert.ToDouble(txtRendaMensal.Text), Convert.ToInt32(txtCPF.Text));
+        bool maiorDeIdade = correntistinha.VerificarSeCorrentistaMaior();
+        if (maiorDeIdade == true )
         {
-            MessageBox.Show(ex.Message);
-
+            MessageBox.Show("Maior de idade!");
         }
-        /*conta1.RetonarPerfilCliente();*/
+        else 
+        {
+            MessageBox.Show("Menor de idade!");
+        }
+
+        MessageBox.Show = correntistinha.RetonarPerfilCliente();
     }
 }
+

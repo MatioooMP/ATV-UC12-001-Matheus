@@ -28,58 +28,51 @@
         /// </summary>
         private void InitializeComponent()
         {
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
-            textBox4 = new TextBox();
-            textBox5 = new TextBox();
+            txtID = new TextBox();
+            txtNome = new TextBox();
+            txtCPF = new TextBox();
+            txtRendaMensal = new TextBox();
             btnCadastrar = new Button();
             lblId = new Label();
             lblNome = new Label();
             lblCPF = new Label();
             lblDataNascimento = new Label();
             lblRendaMensal = new Label();
+            dtpDataNascimento = new DateTimePicker();
             SuspendLayout();
             // 
-            // textBox1
+            // txtID
             // 
-            textBox1.Location = new Point(38, 16);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(100, 23);
-            textBox1.TabIndex = 0;
-            textBox1.TextChanged += textBox1_TextChanged;
+            txtID.Location = new Point(38, 16);
+            txtID.Name = "txtID";
+            txtID.Size = new Size(100, 23);
+            txtID.TabIndex = 0;
+            txtID.TextChanged += textBox1_TextChanged;
             // 
-            // textBox2
+            // txtNome
             // 
-            textBox2.Location = new Point(119, 91);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(100, 23);
-            textBox2.TabIndex = 1;
+            txtNome.Location = new Point(119, 91);
+            txtNome.Name = "txtNome";
+            txtNome.Size = new Size(233, 23);
+            txtNome.TabIndex = 1;
             // 
-            // textBox3
+            // txtCPF
             // 
-            textBox3.Location = new Point(119, 120);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(100, 23);
-            textBox3.TabIndex = 2;
+            txtCPF.Location = new Point(119, 120);
+            txtCPF.Name = "txtCPF";
+            txtCPF.Size = new Size(233, 23);
+            txtCPF.TabIndex = 2;
             // 
-            // textBox4
+            // txtRendaMensal
             // 
-            textBox4.Location = new Point(119, 178);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(100, 23);
-            textBox4.TabIndex = 3;
-            // 
-            // textBox5
-            // 
-            textBox5.Location = new Point(119, 149);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(100, 23);
-            textBox5.TabIndex = 4;
+            txtRendaMensal.Location = new Point(119, 178);
+            txtRendaMensal.Name = "txtRendaMensal";
+            txtRendaMensal.Size = new Size(233, 23);
+            txtRendaMensal.TabIndex = 3;
             // 
             // btnCadastrar
             // 
-            btnCadastrar.Location = new Point(97, 233);
+            btnCadastrar.Location = new Point(182, 221);
             btnCadastrar.Name = "btnCadastrar";
             btnCadastrar.Size = new Size(122, 39);
             btnCadastrar.TabIndex = 5;
@@ -134,22 +127,29 @@
             lblRendaMensal.TabIndex = 10;
             lblRendaMensal.Text = "Renda Mensal (R$):";
             // 
+            // dtpDataNascimento
+            // 
+            dtpDataNascimento.Location = new Point(119, 152);
+            dtpDataNascimento.Name = "dtpDataNascimento";
+            dtpDataNascimento.Size = new Size(233, 23);
+            dtpDataNascimento.TabIndex = 11;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(242, 306);
+            ClientSize = new Size(364, 306);
+            Controls.Add(dtpDataNascimento);
             Controls.Add(lblRendaMensal);
             Controls.Add(lblDataNascimento);
             Controls.Add(lblCPF);
             Controls.Add(lblNome);
             Controls.Add(lblId);
             Controls.Add(btnCadastrar);
-            Controls.Add(textBox5);
-            Controls.Add(textBox4);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(txtRendaMensal);
+            Controls.Add(txtCPF);
+            Controls.Add(txtNome);
+            Controls.Add(txtID);
             Name = "Form1";
             Text = "Form1";
             ResumeLayout(false);
@@ -158,10 +158,10 @@
 
         #endregion
 
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox3;
-        private TextBox textBox4;
+        private TextBox txtID;
+        private TextBox txtNome;
+        private TextBox txtCPF;
+        private TextBox txtRendaMensal;
         private TextBox textBox5;
         private Button btnCadastrar;
         private Label lblId;
@@ -169,5 +169,7 @@
         private Label lblCPF;
         private Label lblDataNascimento;
         private Label lblRendaMensal;
+        private DateTimePicker dateTimePicker1;
+        private DateTimePicker dtpDataNascimento;
     }
 }
