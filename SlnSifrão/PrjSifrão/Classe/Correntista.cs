@@ -11,13 +11,12 @@ namespace PrjSifrão.Classe
 {
     public class Correntista
     {
-
+   
         private int _id;
         public string nomeCliente { get; set; }
         public DateTime dataNascimento { get; set; }
         public double rendaMensal { get; set; }
         public int CPF { get; set; }
-
 
         public int Id
         {
@@ -52,6 +51,8 @@ namespace PrjSifrão.Classe
 
         }
 
+       
+
         public bool VerificarSeCorrentistaMaior()
         {
             DateTime dataatual = DateTime.Now;
@@ -71,6 +72,8 @@ namespace PrjSifrão.Classe
             {
                 return false;
             }
+            
+            
 
         }
 
@@ -78,13 +81,28 @@ namespace PrjSifrão.Classe
         {
             if (this.rendaMensal < 3001)
             {
-                MessageBox.Show("Voce é Cliente Silver"); 
+                return "Silver";
             }
-            else if (this.rendaMensal > 3000.99 && this.rendaMensal < 5001 )
+            else if (this.rendaMensal > 3000.99 && this.rendaMensal < 5001)
             {
-                MessageBox.Show("Você é cliente Gold");
+                return "Gold";
             }
-            
+            else if (this.rendaMensal > 5000.99 && this.rendaMensal < 10001)
+            {
+                return "Diamond";
+            }
+            else 
+            {
+                return "Black";
+            }
+        
+        }
+
+        
+        public string MontarMensagensBoasVindas()
+        {
+          return $"Olá, {nomeCliente}!\r\nSeja bem vindo ao Sifrão\r\nCliente {RetonarPerfilCliente()}"; 
         }
     }
 }
+
