@@ -11,12 +11,47 @@ namespace PrjSifrão.Classe
 {
     public class Correntista
     {
-   
+        private string _cpf;
         private int _id;
-        public string nomeCliente { get; set; }
+        private string _nomeCliente;
+        public string nomeCliente
+        {
+            get
+            {
+                return this._nomeCliente;
+            }
+            set
+            {
+                if (value == String.Empty )
+                {
+                    throw new Exception("Digite o seu nome corretamente!");
+                }
+                else
+                {
+                     this._nomeCliente = value;
+                }
+            } 
+        }
         public DateTime dataNascimento { get; set; }
         public double rendaMensal { get; set; }
-        public int CPF { get; set; }
+        public string CPF
+        {
+            get
+            {
+                return this._cpf;
+            }
+            set
+            {
+                if (value.Length != 11 ||  value == String.Empty)
+                {
+                    throw new Exception("Digite o seu cpf corretamente!");
+                }
+                else
+                {
+                    this._cpf = value;
+                }
+            }
+        }
 
         public int Id
         {
@@ -34,10 +69,11 @@ namespace PrjSifrão.Classe
                 {
                     this._id = value;
                 }
+
             }
         }
 
-        public Correntista(string nomecliente, int id, DateTime datanascimento, double rendamensal, int cpf)
+        public Correntista(string nomecliente, int id, DateTime datanascimento, double rendamensal, string cpf)
         {
             this.nomeCliente = nomecliente;
             this.Id = id;

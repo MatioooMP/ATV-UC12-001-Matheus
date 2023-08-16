@@ -29,7 +29,7 @@ public partial class Form1 : Form
     {
         try
         {
-            Correntista correntistinha = new Correntista(txtNome.Text, Convert.ToInt32(txtID.Text), Convert.ToDateTime(dtpDataNascimento.Text), Convert.ToDouble(txtRendaMensal.Text), Convert.ToInt32(txtCPF.Text));
+            Correntista correntistinha = new Correntista(txtNome.Text, Convert.ToInt32(txtID.Text), Convert.ToDateTime(dtpDataNascimento.Text), Convert.ToDouble(txtRendaMensal.Text), txtCPF.Text);
             bool maiorDeIdade = correntistinha.VerificarSeCorrentistaMaior();
 
             if (maiorDeIdade == false)
@@ -42,18 +42,27 @@ public partial class Form1 : Form
                 /*Correntista correntistinha1 = new Correntista(txtNome.Text, Convert.ToInt32(txtID.Text), Convert.ToDateTime(dtpDataNascimento.Text), Convert.ToDouble(txtRendaMensal.Text), Convert.ToInt32(txtCPF.Text));
                 string perfilcliente = correntistinha.RetonarPerfilCliente();
                 MessageBox.Show(perfilcliente);*/
-                Correntista correntistinha2 = new Correntista(txtNome.Text, Convert.ToInt32(txtID.Text), Convert.ToDateTime(dtpDataNascimento.Text), Convert.ToDouble(txtRendaMensal.Text), Convert.ToInt32(txtCPF.Text));
+                Correntista correntistinha2 = new Correntista(txtNome.Text, Convert.ToInt32(txtID.Text), Convert.ToDateTime(dtpDataNascimento.Text), Convert.ToDouble(txtRendaMensal.Text), txtCPF.Text);
                 MessageBox.Show(correntistinha2.MontarMensagensBoasVindas());
 
             }
         }
-        catch (FormatException)
+        catch (Exception)
         {
 
-            MessageBox.Show("Formato inválido");
-
+            throw;
         }
+        
 
+    }
+
+    private void txtNome_TextChanged(object sender, EventArgs e)
+    {
+        if (int.TryParse(txtNome.Text, out int res))
+        {
+            txtNome.Clear();
+        }
+        
     }
 }
 
